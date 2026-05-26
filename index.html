@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>王锦程 · Jincheng Wang</title>
+<link rel="icon" href="data:," />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&family=Ma+Shan+Zheng&family=Long+Cang&family=ZCOOL+XiaoWei&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          serif: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
+          cnserif: ['"Noto Serif SC"', 'serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html, body { background: #000; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #fff; }
+  .serif { font-family: 'Instrument Serif', serif; }
+  .cnserif { font-family: 'Noto Serif SC', 'Instrument Serif', serif; }
+
+  /* ==== Liquid Glass ==== */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.15) 20%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0.15) 80%,
+      rgba(255, 255, 255, 0.45) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Placeholder panels for user-supplied media */
+  .media-placeholder {
+    background:
+      repeating-linear-gradient(135deg,
+        rgba(255,255,255,0.035) 0 2px,
+        transparent 2px 14px),
+      #0a0a0a;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.35);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    text-align: center; padding: 2rem;
+  }
+
+  html { scroll-behavior: smooth; }
+  input::placeholder { color: rgba(255,255,255,0.4); }
+
+  /* Ink-brush flavor for Chinese-painting aesthetic */
+  .inkbrush-zh {
+    font-family: "Ma Shan Zheng", "Long Cang", "ZCOOL XiaoWei", "Noto Serif SC", serif;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+  .inkbrush-en {
+    font-family: "Cormorant Garamond", "Instrument Serif", serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-research-field {
+    background-image:
+      linear-gradient(120deg, rgba(126, 214, 202, 0.18), rgba(126, 214, 202, 0) 36%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.055) 0 1px, transparent 1px 78px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 78px);
+    opacity: 0.22;
+    mix-blend-mode: screen;
+    mask-image: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.35) 56%, transparent 82%);
+    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.35) 56%, transparent 82%);
+  }
+
+  .hero-spline {
+    position: absolute;
+    left: 6%;
+    right: 34%;
+    bottom: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(126, 214, 202, 0), rgba(126, 214, 202, 0.72), rgba(255,255,255,0.12));
+    transform: rotate(-4deg);
+    box-shadow: 0 0 18px rgba(126, 214, 202, 0.28);
+    opacity: 0.48;
+  }
+
+  .academic-pill {
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(8, 10, 16, 0.36);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
+  }
+
+  /* Retro macOS terminal block for Contact */
+  .terminal {
+    background: rgba(255, 255, 255, 0.04);
+    color: #e8e6e0;
+    padding: 18px 20px;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    border-radius: 14px;
+    text-align: left;
+    min-height: 260px;
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      0 20px 60px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+  }
+  .terminal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.1) 25%,
+      rgba(255, 255, 255, 0) 45%,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  .terminal > * { position: relative; z-index: 1; }
+  .terminal .ascii-logo {
+    font-family: inherit;
+    white-space: pre;
+  }
+  .terminal .t-bar {
+    display: flex; gap: 6px; align-items: center; margin-bottom: 16px;
+  }
+  .terminal .t-bar .d {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 1px solid rgba(232,230,224,0.6);
+  }
+  .terminal .t-bar .t-title {
+    margin-left: 12px; font-size: 10px; letter-spacing: 0.12em;
+    opacity: 0.6; text-transform: uppercase;
+  }
+  .terminal .prompt { color: #9fd49f; }
+  .terminal .path   { color: #9fbfff; }
+  .terminal a {
+    color: #e8e6e0; border-bottom: 1px dashed currentColor;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .terminal a:hover { opacity: 0.7; }
+  .terminal a.email-hi {
+    color: #ffd27a;
+    border-bottom: 1px solid rgba(255, 210, 122, 0.7);
+    font-weight: 600;
+    padding: 1px 6px;
+    margin: 0 2px;
+    border-radius: 3px;
+    background: rgba(255, 210, 122, 0.09);
+    box-shadow: inset 0 0 0 1px rgba(255, 210, 122, 0.18), 0 0 14px rgba(255, 210, 122, 0.12);
+    letter-spacing: 0.01em;
+  }
+  .terminal a.email-hi:hover {
+    background: rgba(255, 210, 122, 0.16);
+    color: #ffe3a8;
+    opacity: 1;
+  }
+  .terminal .cursor-tb {
+    display: inline-block; width: 7px; height: 13px;
+    background: #e8e6e0; vertical-align: -2px; margin-left: 3px;
+    animation: tblink 1s steps(1) infinite;
+  }
+  .terminal .cmt { color: rgba(232,230,224,0.45); }
+  @keyframes tblink { 50% { opacity: 0.2; } }
+
+  /* Flowing silver shimmer on the Education timeline rail */
+  .edu-rail-wrap {
+    position: absolute;
+    left: 0; right: 0;
+    top: 58px;
+    height: 90px;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 1;
+  }
+  .edu-rail-wrap svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .edu-rail-path {
+    fill: none;
+    stroke: rgba(255,255,255,0.22);
+    stroke-width: 1.2;
+  }
+  .edu-rail-glow {
+    fill: none;
+    stroke: url(#eduGlowGrad);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 7px rgba(255,200,110,0.75));
+    stroke-dasharray: 220 3000;
+    animation: eduDash 6.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+  @keyframes eduDash {
+    0%   { stroke-dashoffset: 3220; opacity: 0; }
+    3%   { opacity: 1; }
+    97%  { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  /* ============ Eastern Scroll cards (Awards / Pursuits) ============ */
+  .scroll-card {
+    position: relative;
+    border-radius: 10px;
+    padding: 22px 22px 20px;
+    background:
+      /* very faint paper grain */
+      radial-gradient(120% 80% at 50% 0%, rgba(255, 220, 160, 0.035) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.012) 100%),
+      #14101c;
+    border: 1px solid rgba(212, 165, 116, 0.13);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 230, 200, 0.06),
+      inset 0 0 0 1px rgba(20, 16, 28, 0.6),
+      0 14px 34px rgba(0, 0, 0, 0.34);
+    overflow: hidden;
+  }
+  /* horizontal rod caps top + bottom (scroll roller hint) */
+  .scroll-card::before,
+  .scroll-card::after {
+    content: '';
+    position: absolute;
+    left: 18px; right: 18px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(212, 165, 116, 0) 0%,
+      rgba(212, 165, 116, 0.34) 12%,
+      rgba(255, 220, 160, 0.52) 50%,
+      rgba(212, 165, 116, 0.34) 88%,
+      rgba(212, 165, 116, 0) 100%
+    );
+    box-shadow: 0 0 6px rgba(255, 200, 120, 0.18);
+    pointer-events: none;
+  }
+  .scroll-card::before { top: 10px; }
+  .scroll-card::after  { bottom: 10px; }
+
+  .scroll-card-head {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    column-gap: 16px;
+    padding: 4px 0 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.13);
+  }
+  .scroll-card-eyebrow {
+    grid-column: 1;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 220, 160, 0.55);
+    margin-bottom: 6px;
+  }
+  .scroll-card-title {
+    grid-column: 1;
+    font-family: "Cormorant Garamond", "Instrument Serif", "Noto Serif SC", serif;
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: 0.04em;
+    color: #f3ead9;
+    line-height: 1;
+  }
+  .inkbrush-zh + * .scroll-card-title,
+  body:has(.cnserif) .scroll-card-title { /* no-op fallback */ }
+  /* Ink-circle seal artwork (image-based) */
+  .scroll-card-seal {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transform: rotate(-3deg) translateY(2px);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+    pointer-events: none;
+    user-select: none;
+  }
+  .scroll-card-seal::before,
+  .scroll-card-seal::after { content: none; }
+
+  .scroll-card-body {
+    flex: 1 1 auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .scroll-card-body > li + li {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(212, 165, 116, 0.16);
+  }
+
+  .scroll-row {
+    display: grid;
+    grid-template-columns: 70px 14px 1fr;
+    align-items: baseline;
+    column-gap: 12px;
+  }
+  .scroll-row-year {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: rgba(255, 220, 160, 0.7);
+    white-space: nowrap;
+  }
+  .scroll-row-rule {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212, 165, 116, 0.45) 0%, rgba(212, 165, 116, 0) 100%);
+    align-self: center;
+  }
+  .scroll-row-main {
+    min-width: 0;
+  }
+  .scroll-row-title {
+    color: rgba(255, 245, 230, 0.95);
+    font-size: 15px;
+    line-height: 1.45;
+    letter-spacing: 0.005em;
+  }
+  .scroll-row-note {
+    margin-top: 4px;
+    color: rgba(255, 245, 230, 0.45);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .scroll-row--lang {
+    grid-template-columns: 96px 14px 1fr;
+  }
+  .scroll-row--lang + .scroll-row--lang {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+  }
+
+  .scroll-subhead {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(255, 220, 160, 0.55);
+  }
+
+  /* Hobby chips — small "stamp" tiles */
+  .hobby-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px 10px 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+    border: 1px solid rgba(212, 165, 116, 0.18);
+    border-radius: 8px;
+    transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+  }
+  .hobby-chip:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 220, 160, 0.45);
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  }
+  .hobby-glyph {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    display: block;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow:
+      0 0 0 1px rgba(255, 220, 200, 0.28),
+      0 7px 16px rgba(0, 0, 0, 0.24);
+  }
+  .hobby-glyph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hobby-label {
+    color: rgba(255, 245, 230, 0.92);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .publication-masonry-list {
+    position: relative;
+    width: 100%;
+  }
+  .publication-masonry-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    will-change: transform, width, height, opacity, filter;
+    padding: 6px;
+    cursor: pointer;
+  }
+  .publication-feature-card,
+  .publication-small-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.10);
+    background:
+      radial-gradient(120% 100% at 20% 0%, rgba(255,255,255,0.035), transparent 48%),
+      rgba(255,255,255,0.022);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.24);
+    transition: border-color 220ms ease, background 220ms ease;
+  }
+  .publication-feature-card {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .publication-feature-card:hover,
+  .publication-small-card:hover {
+    border-color: rgba(255,255,255,0.18);
+    background:
+      radial-gradient(120% 100% at 20% 0%, rgba(255,255,255,0.05), transparent 48%),
+      rgba(255,255,255,0.036);
+  }
+  .publication-feature-thumb {
+    flex: 0 0 43%;
+    min-height: 190px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .publication-feature-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+  .publication-feature-body {
+    flex: 1;
+    min-height: 0;
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .publication-venue-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 23px;
+    padding: 3px 8px 3px 9px;
+    border: 1px solid rgba(255, 221, 154, 0.36);
+    border-radius: 4px;
+    background:
+      linear-gradient(180deg, rgba(255, 234, 185, 0.16), rgba(255, 255, 255, 0.055)),
+      rgba(255, 255, 255, 0.035);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 8px 20px rgba(255, 190, 92, 0.08);
+    color: rgba(255, 243, 217, 0.88);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  .publication-small-card {
+    border-radius: 8px;
+    padding: 18px;
+  }
+  @media (min-width: 1000px) {
+    .publication-feature-body {
+      padding: 20px;
+    }
+  }
+  @media (max-width: 599px) {
+    .publication-masonry-item {
+      padding: 0 0 14px;
+    }
+    .publication-feature-thumb {
+      min-height: 220px;
+    }
+    .publication-feature-body {
+      padding: 18px;
+    }
+  }
+
+  .hero-lanyard-shell {
+    --lanyard-w: min(42vw, 520px);
+    --lanyard-r: clamp(-0.75rem, 3.25vw, 3.75rem);
+    position: absolute;
+    top: 34px;
+    right: var(--lanyard-r);
+    z-index: 18;
+    width: var(--lanyard-w);
+    height: clamp(520px, 72vh, 720px);
+    pointer-events: none;
+    opacity: 0.94;
+  }
+  .hero-lanyard-shell .lanyard-wrapper {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    transform-origin: center;
+  }
+  .hero-lanyard-shell canvas {
+    pointer-events: auto;
+  }
+  .hero-nav-glass {
+    overflow: visible;
+    isolation: isolate;
+  }
+  .hero-lanyard-mount {
+    --lanyard-w: min(42vw, 520px);
+    --lanyard-r: clamp(-0.75rem, 3.25vw, 3.75rem);
+    --nav-edge-offset: max(24px, calc((100vw - 64rem) / 2));
+    position: absolute;
+    top: calc(100% - 18px);
+    right: calc(var(--lanyard-r) + (var(--lanyard-w) / 2) - 32px - var(--nav-edge-offset));
+    z-index: 3;
+    width: 64px;
+    height: 72px;
+    pointer-events: none;
+  }
+  .hero-lanyard-slot {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    width: 64px;
+    height: 32px;
+    transform: translateX(-50%);
+    z-index: 3;
+    background: url('assets/lanyard/nav-eyelet.png?v=smoked-bronze-integrated') center / contain no-repeat;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.32));
+  }
+  .hero-lanyard-slot::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    bottom: 6px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(7, 5, 12, 0.34);
+    box-shadow:
+      inset 0 1px 1px rgba(0,0,0,0.42),
+      0 1px 0 rgba(255, 221, 168, 0.08);
+  }
+  .hero-lanyard-slot::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 50px;
+    height: 18px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background:
+      radial-gradient(ellipse at center, rgba(12, 9, 18, 0.36) 0%, rgba(12, 9, 18, 0.18) 46%, rgba(0,0,0,0) 76%);
+    box-shadow:
+      0 -1px 0 rgba(255,255,255,0.05),
+      0 5px 10px rgba(0,0,0,0.16);
+    z-index: -1;
+  }
+  .hero-lanyard-ring {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: url('assets/lanyard/buckle.png?v=antique-gold-hollow') center / contain no-repeat;
+    filter: drop-shadow(0 5px 7px rgba(0,0,0,0.42));
+  }
+  @media (max-width: 900px) {
+    .hero-lanyard-shell {
+      --lanyard-w: 230px;
+      --lanyard-r: -44px;
+      top: 64px;
+      right: -44px;
+      width: 230px;
+      height: 360px;
+      opacity: 0.5;
+      transform: rotate(5deg);
+    }
+    .hero-lanyard-mount {
+      --lanyard-w: 230px;
+      --lanyard-r: -44px;
+      top: calc(100% - 14px);
+      transform: scale(0.78);
+      transform-origin: top center;
+    }
+    .hero-lanyard-shell canvas {
+      pointer-events: none;
+    }
+  }
+  @media (max-width: 540px) {
+    .hero-lanyard-shell {
+      --lanyard-w: 190px;
+      --lanyard-r: -52px;
+      top: 74px;
+      right: -52px;
+      width: 190px;
+      height: 310px;
+      opacity: 0.36;
+    }
+    .hero-lanyard-mount {
+      --lanyard-w: 190px;
+      --lanyard-r: -52px;
+      top: calc(100% - 12px);
+      transform: scale(0.64);
+    }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom": "https://esm.sh/react-dom@18.3.1?external=react",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+    "three": "https://esm.sh/three@0.169.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.18.0?external=react,react-dom,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.122.0?external=react,react-dom,three,@react-three/fiber",
+    "@react-three/rapier": "https://esm.sh/@react-three/rapier@1.5.0?external=react,three,@react-three/fiber",
+    "meshline": "https://esm.sh/meshline@3.3.1?external=three"
+  }
+}
+</script>
+<script>
+  (function(){
+    const origError = console.error;
+    console.error = function(...args){
+      const msg = args[0];
+      if (typeof msg === 'string' && msg.indexOf('unique "key" prop') !== -1) return;
+      origError.apply(console, args);
+    };
+  })();
+</script>
+</head>
+<body style="background: #0d0a14;">
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+
+const { useEffect, useLayoutEffect, useRef, useState, useMemo, createContext, useContext } = React;
+const FM = window.FramerMotion || window.Motion || {};
+const M = FM.motion;
+const MotionDiv = M ? M.div : (p) => <div {...p} />;
+const MotionH2 = M ? M.h2 : (p) => <h2 {...p} />;
+const MotionP = M ? M.p : (p) => <p {...p} />;
+const MotionButton = M ? M.button : (p) => <button {...p} />;
+
+function useInViewFallback(ref, options) {
+  const [v, setV] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {setV(true);if (options?.once) obs.disconnect();} else
+        if (!options?.once) setV(false);
+      });
+    }, { rootMargin: options?.margin || '0px' });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return v;
+}
+const useInViewFn = FM.useInView || useInViewFallback;
+
+/* ============ i18n ============ */
+const LangCtx = createContext({ lang: 'en', setLang: () => {} });
+const useLang = () => useContext(LangCtx);
+const tr = (en, zh) => ({ en, zh });
+const T = (obj, lang) => obj && typeof obj === 'object' && 'en' in obj ? obj[lang] : obj;
+
+/* ============ Icons ============ */
+const Icon = ({ children, size = 20, className = '', strokeWidth = 1.75 }) =>
+<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+fill="none" stroke="currentColor" strokeWidth={strokeWidth}
+strokeLinecap="round" strokeLinejoin="round" className={className}>{children}</svg>;
+
+const GlobeIcon = (p) => <Icon {...p}><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></Icon>;
+const ArrowRight = (p) => <Icon {...p}><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></Icon>;
+const ArrowUpRight = (p) => <Icon {...p}><path d="M7 7h10v10" /><path d="M7 17 17 7" /></Icon>;
+const MailIcon = (p) => <Icon {...p}><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 6L2 7" /></Icon>;
+const GithubIcon = (p) => <Icon {...p}><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></Icon>;
+const ScholarIcon = (p) => <Icon {...p}><path d="M22 10 12 4 2 10l10 6 10-6Z" /><path d="M6 12v5c3 2 9 2 12 0v-5" /></Icon>;
+const LinkedinIcon = (p) => <Icon {...p}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 1 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></Icon>;
+
+/* ============ Language toggle ============ */
+function LangToggle() {
+  const { lang, setLang } = useLang();
+  return (
+    <div className="liquid-glass rounded-full flex items-center text-xs font-medium overflow-hidden" role="group" aria-label="Language">
+      <button onClick={() => setLang('en')}
+      className={`px-3 py-1.5 transition-colors ${lang === 'en' ? 'text-white' : 'text-white/40 hover:text-white/70'}`}>EN</button>
+      <span className="text-white/20">·</span>
+      <button onClick={() => setLang('zh')}
+      className={`px-3 py-1.5 transition-colors ${lang === 'zh' ? 'text-white' : 'text-white/40 hover:text-white/70'}`}>中</button>
+    </div>);
+
+}
+
+/* ============ Research interest chip ============ */
+function InterestChip({ children }) {
+  return (
+    <span className="liquid-glass rounded-full px-4 py-1.5 text-white/80 text-xs md:text-sm tracking-wide">
+      {children}
+    </span>);
+
+}
+
+/* ============ Hero ============ */
+function Hero() {
+  const { lang } = useLang();
+  const videoRef = useRef(null);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Ping-pong loop: forward → manual reverse → forward → ...
+    // We trigger the reverse leg slightly before duration to avoid the browser's auto-end behavior
+    // (where a video without `loop` may reset to 0 once it reaches duration).
+    const REVERSE_RATE = 1.0;
+    const TAIL_MARGIN = 0.15; // start reversing this many seconds before end
+    let mode = 'forward'; // 'forward' | 'reverse'
+    let lastTs = 0;
+    let reversePos = 0;
+
+    const startForward = () => {
+      mode = 'forward';
+      video.play().catch(() => {});
+    };
+
+    const startReverse = (fromTime) => {
+      if (mode === 'reverse') return;
+      mode = 'reverse';
+      reversePos = fromTime;
+      lastTs = 0;
+      try { video.pause(); } catch (e) {}
+      const tick = (ts) => {
+        if (mode !== 'reverse') return;
+        if (!lastTs) lastTs = ts;
+        const dt = (ts - lastTs) / 1000;
+        lastTs = ts;
+        reversePos -= dt * REVERSE_RATE;
+        if (reversePos <= 0) {
+          reversePos = 0;
+          try { video.currentTime = 0; } catch (e) {}
+          startForward();
+          return;
+        }
+        try { video.currentTime = reversePos; } catch (e) {}
+        rafRef.current = requestAnimationFrame(tick);
+      };
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    const onLoaded = () => { video.style.opacity = '1'; startForward(); };
+    const onTimeUpdate = () => {
+      if (mode !== 'forward' || !video.duration) return;
+      if (video.currentTime >= video.duration - TAIL_MARGIN) {
+        startReverse(video.duration - TAIL_MARGIN);
+      }
+    };
+
+    if (video.readyState >= 2) onLoaded();
+    video.addEventListener('loadeddata', onLoaded);
+    video.addEventListener('timeupdate', onTimeUpdate);
+    return () => {
+      video.removeEventListener('loadeddata', onLoaded);
+      video.removeEventListener('timeupdate', onTimeUpdate);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  const navLinks = [
+  { href: '#about', en: 'About', zh: '关于' },
+  { href: '#education', en: 'Education', zh: '教育' },
+  { href: '#publications', en: 'Publications', zh: '发表' },
+  { href: '#awards', en: 'Awards', zh: '荣誉' },
+  { href: '#contact', en: 'Contact', zh: '联系' }];
+
+
+  const interests = [
+  { en: 'Reinforcement Learning', zh: '强化学习' },
+  { en: 'Legged Robots', zh: '足式机器人' },
+  { en: 'Acoustic Levitation', zh: '超声波悬浮' }];
+
+
+  return (
+    <section className="min-h-[92vh] md:min-h-screen overflow-hidden relative flex flex-col">
+      {/* Background video */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ opacity: 0, objectPosition: 'center 40%', filter: 'saturate(0.72) contrast(1.06) brightness(0.86)' }}
+        muted autoPlay playsInline preload="auto"
+        src="assets/hero-bg.mp4" />
+
+      {/* Cinematic dim, tuned toward research-profile clarity */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(135deg, rgba(4,6,12,0.72) 0%, rgba(4,6,12,0.42) 38%, rgba(4,6,12,0.04) 68%)' }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.56) 0%, rgba(0,0,0,0.06) 34%, rgba(0,0,0,0.12) 68%, rgba(0,0,0,0.72) 100%)' }} />
+      <div className="absolute inset-0 pointer-events-none hero-research-field" />
+      <div className="hero-spline hidden md:block pointer-events-none" />
+      <div id="lanyard-root" className="hero-lanyard-shell" aria-hidden="true" />
+
+      {/* Navbar */}
+      <nav className="relative z-20 px-6 py-6">
+        <div className="liquid-glass hero-nav-glass rounded-full max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="hero-lanyard-mount" aria-hidden="true">
+            <span className="hero-lanyard-slot" />
+            <span className="hero-lanyard-ring" />
+          </div>
+          <div className="flex items-center">
+            <a href="#" className="flex items-center gap-2">
+              <GlobeIcon size={22} className="text-white" />
+              <span className="text-white font-semibold text-base tracking-tight">
+                {lang === 'zh' ? '王锦程' : 'Jincheng Wang'}
+              </span>
+            </a>
+            <div className="hidden md:flex items-center gap-7 ml-8">
+              {navLinks.map((l) =>
+              <a key={l.href} href={l.href} className="text-white/70 hover:text-white text-sm font-medium transition-colors">
+                  {lang === 'zh' ? l.zh : l.en}
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href="#contact" className="hidden sm:inline-block text-white/80 hover:text-white text-sm font-medium transition-colors">
+              {lang === 'zh' ? '联系' : 'Get in touch'}
+            </a>
+            <LangToggle />
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero content — academic identity first, atmosphere second */}
+      <div className="relative z-10 flex-1 flex items-start px-6 md:px-12 lg:px-20 pt-5 md:pt-10">
+        <div className="max-w-3xl">
+          <div className="academic-pill rounded-full inline-flex items-center gap-2 px-3.5 py-2 text-white/78 text-[11px] md:text-xs font-mono tracking-[0.14em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-200/75" />
+            <span>
+              {lang === 'zh' ? 'UCL 计算机科学博士生' : 'PhD Candidate · UCL Computer Science'}
+            </span>
+          </div>
+
+          <h1 className={`tracking-tight text-5xl md:text-6xl lg:text-[6rem] ${lang === 'zh' ? 'cnserif' : 'serif'}`}
+            style={{ fontWeight: 400, lineHeight: 0.95, color: '#fff', fontFamily: '"Instrument Serif"', marginTop: 18 }}>
+            {lang === 'zh' ?
+              <>王锦程</> :
+              <>Jincheng<br/><em className="italic text-white/85">Wang</em></>
+            }
+          </h1>
+
+          <p className="mt-5 max-w-xl text-white/84 text-base md:text-xl leading-relaxed">
+            {lang === 'zh'
+              ? '我研究能让机器人进行长程推理，并在真实物理世界中可靠行动的学习系统。'
+              : 'I develop learning systems that help robots reason over long horizons and act reliably in the physical world.'}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {interests.map((it, i) =>
+              <InterestChip key={i}>{lang === 'zh' ? it.zh : it.en}</InterestChip>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* CTAs — bottom-left */}
+      <div className="absolute bottom-5 left-6 right-6 md:right-auto md:bottom-8 md:left-12 z-10">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <a href="mailto:ucabj46@ucl.ac.uk" className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-semibold hover:bg-white/5 transition-colors inline-flex items-center gap-2">
+            <MailIcon size={16} /> {lang === 'zh' ? '邮件' : 'Email'}
+          </a>
+          <a href="https://scholar.google.com/citations?user=fgCXxRkAAAAJ&hl=zh-CN" target="_blank" rel="noopener" className="liquid-glass rounded-full px-5 py-3 text-white/88 text-sm font-medium hover:text-white hover:bg-white/5 transition-all inline-flex items-center gap-2">
+            <ScholarIcon size={16} /> {lang === 'zh' ? '学术主页' : 'Scholar'}
+          </a>
+          <a href="https://github.com/WangJinCheng1998" target="_blank" rel="noopener" className="liquid-glass rounded-full px-5 py-3 text-white/82 text-sm font-medium hover:text-white hover:bg-white/5 transition-all inline-flex items-center gap-2">
+            <GithubIcon size={16} /> GitHub
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom-right location stamp */}
+      <div className="hidden md:block absolute bottom-6 right-6 md:bottom-8 md:right-12 z-10 text-white/55 text-xs tracking-[0.18em] uppercase pointer-events-none">
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
+          <span>{lang === 'zh' ? '伦敦' : 'London'} · 51.4°N 0.0°W</span>
+        </div>
+      </div>
+
+    </section>);
+
+}
+
+/* ============ About ============ */
+function AboutSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const inView = useInViewFn(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section id="about" ref={ref} className="pt-20 md:pt-28 pb-8 md:pb-10 px-6 overflow-hidden relative" style={{ background: '#0d0a14' }}>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('assets/about-bg.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center right',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.58,
+        }} />
+      {/* Left-side dark wash to keep text readable */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.86) 38%, rgba(0,0,0,0.48) 68%, rgba(0,0,0,0.18) 100%)',
+        }} />
+      {/* Top + bottom fades to blend into neighboring sections */}
+      <div
+        className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,0) 100%)' }} />
+      <div
+        className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, #000 0%, rgba(0,0,0,0) 100%)' }} />
+      <div className="max-w-6xl mx-auto relative">
+        <MotionP
+          className="text-white/40 text-sm tracking-widest uppercase"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}>
+          
+          {lang === 'zh' ? '关于我' : 'About'}
+        </MotionP>
+        <MotionH2
+          className={`mt-6 text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight ${lang === 'zh' ? 'cnserif' : ''}`}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.1 }}>
+          
+          {lang === 'zh' ?
+          <>
+              {'在 '}
+              <span className="serif italic text-white/60">算法</span>
+              {' 与 '}
+              <span className="serif italic text-white/60">物理</span>
+              {' 的交界处'}
+              <br className="hidden md:block" />
+              {'探索机器能做到的极限。'}
+            </> :
+
+          <>
+              {'Exploring what machines can do,'}
+              <br className="hidden md:block" />
+              {' where '}
+              <span className="serif italic text-white/60">algorithms</span>
+              {' meet '}
+              <span className="serif italic text-white/60">physical matter.</span>
+            </>
+          }
+        </MotionH2>
+
+        <MotionDiv
+          className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}>
+          
+          <div>
+            <div className="text-white/40 text-xs tracking-widest uppercase mb-3">{lang === 'zh' ? '目前' : 'Currently'}</div>
+            <p className="text-white/75 text-sm md:text-base leading-relaxed">
+              {lang === 'zh' ?
+              '伦敦大学学院 (UCL) 计算机系博士生（2023 – 2027），研究机器人学习、规划与具身决策。英文名 Ash。' :
+              'PhD candidate in Computer Science at University College London (2023–2027), working across robot learning, planning, and embodied decision-making.'}
+            </p>
+          </div>
+          <div>
+            <div className="text-white/40 text-xs tracking-widest uppercase mb-3">{lang === 'zh' ? '研究方向' : 'Research'}</div>
+            <p className="text-white/75 text-sm md:text-base leading-relaxed">
+              {lang === 'zh' ?
+              '强化学习、Transformers、扩散式规划与足式机器人。关注样本效率、长程依赖，以及可落地到真实系统的决策模型。' :
+              'Reinforcement learning, Transformers, diffusion planning, and legged robots, with an emphasis on sample efficiency, long-horizon structure, and real-system deployment.'}
+            </p>
+          </div>
+          <div>
+            <div className="text-white/40 text-xs tracking-widest uppercase mb-3">{lang === 'zh' ? '另一面' : 'Adjacent'}</div>
+            <p className="text-white/75 text-sm md:text-base leading-relaxed">
+              {lang === 'zh' ?
+              '也探索超声波相控阵与声学操控，让多粒子在空中稳定运动，连接机器人、HCI 与物理交互。' :
+              'I also explore phased-array acoustics for stable multi-particle manipulation, connecting robotics, HCI, and physical interaction.'}
+            </p>
+          </div>
+        </MotionDiv>
+      </div>
+    </section>);
+
+}
+
+/* ============ Featured Paper ============ */
+function FeaturedVideoSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const inView = useInViewFn(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section id="featured" style={{ background: '#0d0a14' }} className=" pt-4 md:pt-6 pb-12 md:pb-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-end justify-between mb-8 md:mb-10">
+          <div>
+            <div className="text-white/40 text-xs tracking-widest uppercase mb-2">
+              {lang === 'zh' ? '精选论文' : 'Featured Paper'}
+            </div>
+            <h2 className="text-3xl md:text-5xl text-white tracking-tight">
+              Long-Short Decision Transformer
+            </h2>
+            <div className="mt-2 text-white/50 text-xs md:text-sm tracking-wide">
+              ICLR 2025
+            </div>
+          </div>
+        </div>
+
+        <MotionDiv
+          ref={ref}
+          className="relative rounded-3xl overflow-hidden aspect-video"
+          initial={{ opacity: 0, y: 60 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9 }}>
+          
+          <div className="media-placeholder w-full h-full">
+            [ {lang === 'zh' ? '论文配图占位' : 'Paper teaser / figure placeholder'} ]<br />
+            {lang === 'zh' ? '请稍后提供图片或视频' : 'image or video to be provided'}
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="liquid-glass rounded-2xl p-6 md:p-8 max-w-lg">
+              <div className="text-white/50 text-xs tracking-widest uppercase mb-3">
+                {lang === 'zh' ? '摘要' : 'TL;DR'}
+              </div>
+              <p className="text-white text-sm md:text-base leading-relaxed">
+                {lang === 'zh' ?
+                '桥接全局与局部依赖关系，让 Decision Transformer 在更广泛的决策任务上泛化得更好。' :
+                'Bridging global and local dependencies so Decision Transformers generalize better across a wider range of decision-making tasks.'}
+              </p>
+              <p className="mt-3 text-white/50 text-xs leading-relaxed">
+                {lang === 'zh' ? '王锦程、Karanasou P.、Wei P. 等。' : 'Wang J, Karanasou P, Wei P, et al.'}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2 self-start md:self-auto">
+              <MotionButton className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-medium inline-flex items-center gap-2" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                {lang === 'zh' ? '论文' : 'Paper'} <ArrowUpRight size={14} />
+              </MotionButton>
+              <MotionButton className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-medium inline-flex items-center gap-2" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                {lang === 'zh' ? '代码' : 'Code'} <ArrowUpRight size={14} />
+              </MotionButton>
+            </div>
+          </div>
+        </MotionDiv>
+      </div>
+    </section>);
+
+}
+
+/* ============ Masonry layout adapted for publication cards ============ */
+const useMedia = (queries, values, defaultValue) => {
+  const get = () => values[queries.findIndex((q) => window.matchMedia(q).matches)] ?? defaultValue;
+  const [value, setValue] = useState(get);
+
+  useEffect(() => {
+    const handler = () => setValue(get());
+    const lists = queries.map((q) => window.matchMedia(q));
+    lists.forEach((mql) => mql.addEventListener('change', handler));
+    return () => lists.forEach((mql) => mql.removeEventListener('change', handler));
+  }, [queries.join('|')]);
+
+  return value;
+};
+
+const useMeasure = () => {
+  const ref = useRef(null);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useLayoutEffect(() => {
+    if (!ref.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      setSize({ width, height });
+    });
+    ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, []);
+
+  return [ref, size];
+};
+
+const preloadImages = async (urls) => {
+  const sources = urls.filter(Boolean);
+  await Promise.all(
+    sources.map((src) =>
+      new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = img.onerror = () => resolve();
+      })
+    )
+  );
+};
+
+function Masonry({
+  items,
+  renderItem,
+  ease = 'power3.out',
+  duration = 0.6,
+  stagger = 0.05,
+  animateFrom = 'bottom',
+  scaleOnHover = true,
+  hoverScale = 0.97,
+  blurToFocus = true,
+}) {
+  const columns = useMedia(
+    ['(min-width:1000px)', '(min-width:640px)'],
+    [3, 2],
+    1
+  );
+  const [containerRef, { width }] = useMeasure();
+  const [imagesReady, setImagesReady] = useState(false);
+  const gap = columns === 1 ? 14 : 18;
+  const hasMounted = useRef(false);
+
+  useEffect(() => {
+    let alive = true;
+    setImagesReady(false);
+    preloadImages(items.map((i) => i.img)).then(() => {
+      if (alive) setImagesReady(true);
+    });
+    return () => { alive = false; };
+  }, [items]);
+
+  const grid = useMemo(() => {
+    if (!width) return [];
+    const colHeights = new Array(columns).fill(0);
+    const columnWidth = (width - gap * (columns - 1)) / columns;
+
+    return items.map((child) => {
+      const col = colHeights.indexOf(Math.min(...colHeights));
+      const x = (columnWidth + gap) * col;
+      const rawHeight = typeof child.height === 'function'
+        ? child.height({ columns, width: columnWidth })
+        : child.height;
+      const y = colHeights[col];
+      colHeights[col] += rawHeight + gap;
+      return { ...child, x, y, w: columnWidth, h: rawHeight };
+    });
+  }, [columns, gap, items, width]);
+
+  const containerHeight = useMemo(() => {
+    if (!grid.length) return 0;
+    return Math.max(...grid.map((item) => item.y + item.h));
+  }, [grid]);
+
+  const getInitialPosition = (item) => {
+    const containerRect = containerRef.current?.getBoundingClientRect();
+    if (!containerRect) return { x: item.x, y: item.y };
+    let direction = animateFrom;
+    if (animateFrom === 'random') {
+      const directions = ['top', 'bottom', 'left', 'right'];
+      direction = directions[Math.floor(Math.random() * directions.length)];
+    }
+    switch (direction) {
+      case 'top':
+        return { x: item.x, y: -200 };
+      case 'bottom':
+        return { x: item.x, y: window.innerHeight + 200 };
+      case 'left':
+        return { x: -200, y: item.y };
+      case 'right':
+        return { x: window.innerWidth + 200, y: item.y };
+      case 'center':
+        return {
+          x: containerRect.width / 2 - item.w / 2,
+          y: containerRect.height / 2 - item.h / 2,
+        };
+      default:
+        return { x: item.x, y: item.y + 100 };
+    }
+  };
+
+  useLayoutEffect(() => {
+    if (!imagesReady || !grid.length) return;
+    const gsap = window.gsap;
+    grid.forEach((item, index) => {
+      const selector = `[data-key="${item.id}"]`;
+      const animationProps = { x: item.x, y: item.y, width: item.w, height: item.h };
+      if (!gsap) return;
+      if (!hasMounted.current) {
+        const initialPos = getInitialPosition(item);
+        gsap.fromTo(selector, {
+          opacity: 0,
+          x: initialPos.x,
+          y: initialPos.y,
+          width: item.w,
+          height: item.h,
+          ...(blurToFocus && { filter: 'blur(10px)' }),
+        }, {
+          opacity: 1,
+          ...animationProps,
+          ...(blurToFocus && { filter: 'blur(0px)' }),
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: index * stagger,
+        });
+      } else {
+        gsap.to(selector, { ...animationProps, duration, ease, overwrite: 'auto' });
+      }
+    });
+    hasMounted.current = true;
+  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+
+  const handleMouseEnter = (item) => {
+    if (!scaleOnHover || !window.gsap) return;
+    window.gsap.to(`[data-key="${item.id}"]`, {
+      scale: hoverScale,
+      duration: 0.28,
+      ease: 'power2.out',
+    });
+  };
+
+  const handleMouseLeave = (item) => {
+    if (!scaleOnHover || !window.gsap) return;
+    window.gsap.to(`[data-key="${item.id}"]`, {
+      scale: 1,
+      duration: 0.28,
+      ease: 'power2.out',
+    });
+  };
+
+  return (
+    <div ref={containerRef} className="publication-masonry-list" style={{ height: containerHeight }}>
+      {grid.map((item) => (
+        <div
+          key={item.id}
+          data-key={item.id}
+          className="publication-masonry-item"
+          style={{
+            width: item.w,
+            height: item.h,
+            transform: `translate(${item.x}px, ${item.y}px)`,
+            opacity: imagesReady ? 1 : 0,
+          }}
+          onClick={() => item.url && window.open(item.url, '_blank', 'noopener')}
+          onMouseEnter={() => handleMouseEnter(item)}
+          onMouseLeave={() => handleMouseLeave(item)}>
+          {renderItem(item)}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ============ Publications ============ */
+function WritingSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const inView = useInViewFn(ref, { once: true, margin: '-100px' });
+
+  // Ordered newest → oldest. Each paper has a procedurally-generated SVG
+  // thumbnail (unique hue + pattern) to act as placeholder imagery.
+  const posts = [
+  {
+    year: '2026',
+    tag: { en: 'CHI 2026',  zh: 'CHI 2026' },
+    en: 'AAC: An Acoustic Actor–Critic Trajectory Planning and Correction System for Stable Multi-Particle Levitation Displays',
+    zh: 'AAC：用于稳定多粒子声浮显示的声学 Actor–Critic 轨迹规划与校正系统',
+    authors: 'Wang J, Gao L, Shen Z, Wei P, Martinez Plasencia D',
+    venue: {
+      en: 'Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems',
+      zh: '2026 CHI 人机交互国际会议'
+    },
+    thumb: { hue: 38,  pattern: 'wave', img: 'assets/publication-aac.png' },
+    links: [{ label: 'Paper', href: 'https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=fgCXxRkAAAAJ&sortby=title&citation_for_view=fgCXxRkAAAAJ:IjCSPb-OGe4C' }]
+  },
+  {
+    year: '2026',
+    tag: { en: 'AAAI 2026', zh: 'AAAI 2026' },
+    en: 'AcoustoReinforce: Multi-Particle Acoustophoretic Path Planning with Deep Reinforcement Learning',
+    zh: 'AcoustoReinforce：基于深度强化学习的多粒子声泳路径规划',
+    authors: 'Wei P, Christopoulos G, Shen Z, Wang J, Mukherjee J, Hirayama R, et al.',
+    venue: {
+      en: 'AAAI Conference on Artificial Intelligence',
+      zh: 'AAAI 人工智能国际会议'
+    },
+    thumb: { hue: 198, pattern: 'lattice' },
+    links: [{ label: 'Paper', href: 'https://discovery.ucl.ac.uk/id/eprint/10219446/' }]
+  },
+  {
+    year: '2026',
+    tag: { en: 'ICML 2026', zh: 'ICML 2026' },
+    en: 'QHyer: Q-conditioned Hybrid Attention-mamba Transformer for Offline Goal-conditioned RL',
+    zh: 'QHyer：用于离线目标条件强化学习的 Q 条件混合 Attention-Mamba Transformer',
+    authors: 'Lei X, Wang J, Zhang X, Wang D',
+    venue: {
+      en: 'ICML 2026',
+      zh: 'ICML 2026'
+    },
+    thumb: { hue: 218, pattern: 'grid' },
+    links: [{ label: 'Paper', href: 'https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=fgCXxRkAAAAJ&citation_for_view=fgCXxRkAAAAJ:zYLM7Y9cAGgC' }]
+  },
+  {
+    year: '2026',
+    tag: { en: 'RSS 2026',  zh: 'RSS 2026' },
+    en: 'SanD-Planner: Sample-Efficient Diffusion Planner in B-Spline Space for Robust Local Navigation',
+    zh: 'SanD-Planner：用于鲁棒局部导航的 B 样条空间扩散规划器',
+    authors: 'Wang J, Bao L, Yang T, Martinez Plasencia D, Jiao J, Kanoulas D',
+    venue: {
+      en: 'arXiv preprint arXiv:2602.00923',
+      zh: 'arXiv 预印本 arXiv:2602.00923'
+    },
+    thumb: { hue: 168, pattern: 'spline', img: 'assets/publication-sand-planner.png' },
+    links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2602.00923' }]
+  },
+  {
+    year: '2025',
+    tag: { en: 'Frontiers', zh: 'Frontiers' },
+    en: 'AcoustoBots: A Swarm of Robots for Acoustophoretic Multimodal Interactions',
+    zh: 'AcoustoBots：用于声泳多模态交互的机器人群',
+    authors: 'Kemsaram N, Hardwick J, Wang J, Gautam B, Besevli C, Christopoulos G, et al.',
+    venue: {
+      en: 'Frontiers in Robotics and AI',
+      zh: 'Frontiers in Robotics and AI'
+    },
+    thumb: { hue: 18,  pattern: 'dots' },
+    links: [{ label: 'Paper', href: 'https://www.frontiersin.org/journals/robotics-and-ai' }]
+  },
+  {
+    year: '2025',
+    tag: { en: 'ICLR 2025', zh: 'ICLR 2025' },
+    en: 'Long-Short Decision Transformer: Bridging Global and Local Dependencies for Generalized Decision-Making',
+    zh: 'Long-Short Decision Transformer：桥接全局与局部依赖的通用决策模型',
+    authors: 'Wang J, Karanasou P, Wei P, Gatti E, Martinez Plasencia D, Kanoulas D',
+    venue: {
+      en: 'The Thirteenth International Conference on Learning Representations (ICLR)',
+      zh: '第十三届国际学习表征会议（ICLR）'
+    },
+    thumb: { hue: 268, pattern: 'grid', img: 'assets/publication-lsdt.png' },
+    links: [{ label: 'Paper', href: 'https://discovery.ucl.ac.uk/id/eprint/10209524/' }, { label: 'Code', href: 'https://github.com/WangJinCheng1998' }]
+  }];
+
+  const majorPapers = posts.filter((p) => /^Wang J\b/.test(p.authors));
+  const morePapers = posts.filter((p) => !/^Wang J\b/.test(p.authors));
+
+  const masonryItems = majorPapers.map((p, i) => ({
+    id: `paper-${i}`,
+    paper: p,
+    url: p.links[0]?.href,
+    height: ({ columns }) => columns === 1 ? 660 : 620,
+  }));
+
+  const renderMajorPaper = (item) => {
+    const p = item.paper;
+    return (
+      <article className="publication-feature-card">
+        <div className="publication-feature-thumb">
+          {p.thumb.img
+            ? <img src={p.thumb.img} alt="" loading="lazy" />
+            : <PaperThumb hue={p.thumb.hue} pattern={p.thumb.pattern} />}
+        </div>
+        <div className="publication-feature-body">
+          <div className="flex flex-wrap items-center gap-3 mb-3">
+            <span className="text-white/40 text-xs tracking-widest font-mono">{p.year}</span>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="publication-venue-badge">
+              {lang === 'zh' ? p.tag.zh : p.tag.en}
+            </span>
+          </div>
+          <h3 className="text-white text-lg md:text-xl tracking-tight mb-3 leading-snug">
+            {lang === 'zh' ? p.zh : p.en}
+          </h3>
+          <p className="text-white/60 text-xs md:text-sm leading-relaxed mb-1">{highlightAuthor(p.authors)}</p>
+          <p className="text-white/40 text-[11px] md:text-xs italic leading-relaxed mb-4">{lang === 'zh' ? p.venue.zh : p.venue.en}</p>
+          <div className="mt-auto flex gap-3">
+            {p.links.map((lnk) =>
+              <a key={lnk.label} href={lnk.href} target="_blank" rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="inline-flex items-center gap-1 text-white/55 hover:text-white transition-colors text-xs md:text-sm">
+                {lnk.label} <ArrowUpRight size={12} />
+              </a>
+            )}
+          </div>
+        </div>
+      </article>
+    );
+  };
+
+  const renderSmallPaper = (p, i) => (
+    <MotionDiv
+      key={p.en}
+      className="publication-small-card"
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: 0.12 + 0.08 * i }}>
+      <div className="flex flex-wrap items-center gap-3 mb-3">
+        <span className="text-white/40 text-xs tracking-widest font-mono">{p.year}</span>
+        <span className="w-1 h-1 rounded-full bg-white/30" />
+        <span className="publication-venue-badge">
+          {lang === 'zh' ? p.tag.zh : p.tag.en}
+        </span>
+      </div>
+      <h3 className="text-white text-base md:text-lg tracking-tight mb-2 leading-snug">
+        {lang === 'zh' ? p.zh : p.en}
+      </h3>
+      <p className="text-white/55 text-xs md:text-sm leading-relaxed mb-1">{highlightAuthor(p.authors)}</p>
+      <p className="text-white/38 text-[11px] md:text-xs italic leading-relaxed mb-3">{lang === 'zh' ? p.venue.zh : p.venue.en}</p>
+      <div className="flex gap-3">
+        {p.links.map((lnk) =>
+          <a key={lnk.label} href={lnk.href} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-white/55 hover:text-white transition-colors text-xs md:text-sm">
+            {lnk.label} <ArrowUpRight size={12} />
+          </a>
+        )}
+      </div>
+    </MotionDiv>
+  );
+
+
+  return (
+    <section id="publications" ref={ref} style={{ background: '#0d0a14' }} className=" py-12 md:py-16 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        <MotionDiv
+          className="flex items-end justify-between mb-10 md:mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}>
+          
+          <h2 className="text-3xl md:text-5xl text-white tracking-tight">
+            {lang === 'zh' ? '代表性发表' : 'Selected Publications'}
+          </h2>
+          <div className="hidden md:block text-white/40 text-xs tracking-[0.25em] uppercase font-mono">
+            {posts.length}&nbsp;{lang === 'zh' ? '篇' : 'papers'} · 2025 — 2026
+          </div>
+        </MotionDiv>
+
+        <Masonry
+          items={masonryItems}
+          renderItem={renderMajorPaper}
+          ease="power3.out"
+          duration={0.6}
+          stagger={0.05}
+          animateFrom="bottom"
+          scaleOnHover={true}
+          hoverScale={0.97}
+          blurToFocus={true}
+        />
+
+        <div className="mt-8 md:mt-10">
+          <MotionDiv
+            className="mb-4 flex items-center justify-between gap-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.08 }}>
+            <div className="text-white/38 text-[11px] tracking-[0.26em] uppercase font-mono">
+              {lang === 'zh' ? '更多工作' : 'More Work'}
+            </div>
+            <div className="text-white/30 text-xs tracking-[0.22em] uppercase font-mono">
+              {String(morePapers.length).padStart(2, '0')}&nbsp;{lang === 'zh' ? '篇' : 'items'}
+            </div>
+          </MotionDiv>
+          <div className="grid md:grid-cols-2 gap-3.5 md:gap-4">
+            {morePapers.map((p, i) => renderSmallPaper(p, i))}
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* Highlight Jincheng's name in author lists */
+function highlightAuthor(authors) {
+  const parts = authors.split(/(Wang J|J Wang|J\. Wang|Wang, J\.?|Wang Jincheng|Jincheng Wang)/g);
+  return parts.map((p, i) => {
+    if (/^(Wang J|J Wang|J\. Wang|Wang, J\.?|Wang Jincheng|Jincheng Wang)$/.test(p)) {
+      return (
+        <span key={i} style={{ color: '#ffd27a', fontWeight: 600, textShadow: '0 0 12px rgba(255,210,122,0.25)' }}>{p}</span>
+      );
+    }
+    return <span key={i}>{p}</span>;
+  });
+}
+
+/* Procedurally-generated thumbnail tiles for papers */
+function PaperThumb({ hue, pattern }) {
+  const bg = `linear-gradient(135deg, hsl(${hue}, 45%, 18%) 0%, hsl(${(hue+40)%360}, 55%, 10%) 100%)`;
+  const accent = `hsl(${hue}, 70%, 65%)`;
+  const soft = `hsl(${hue}, 40%, 55%)`;
+  return (
+    <div className="w-full h-full relative" style={{ background: bg }}>
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 160 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id={`g-${hue}`} cx="30%" cy="30%" r="80%">
+            <stop offset="0%" stopColor="white" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <rect width="160" height="160" fill={`url(#g-${hue})`} />
+        {pattern === 'wave' &&
+          Array.from({ length: 7 }).map((_, k) =>
+            <path key={k} d={`M 0 ${30+k*18} Q 40 ${20+k*18} 80 ${30+k*18} T 160 ${30+k*18}`} fill="none" stroke={accent} strokeOpacity={0.25+k*0.05} strokeWidth="1" />
+          )}
+        {pattern === 'lattice' &&
+          Array.from({ length: 8 }).map((_, k) =>
+            <g key={k}>
+              <line x1={k*22} y1="0" x2={k*22+40} y2="160" stroke={accent} strokeOpacity="0.25" strokeWidth="0.8" />
+              <line x1={k*22+40} y1="0" x2={k*22} y2="160" stroke={soft} strokeOpacity="0.18" strokeWidth="0.8" />
+            </g>
+          )}
+        {pattern === 'spline' && (
+          <>
+            <path d="M 0 120 C 40 60, 80 140, 120 60 S 200 100, 240 80" fill="none" stroke={accent} strokeOpacity="0.8" strokeWidth="1.5" />
+            <path d="M 0 100 C 40 40, 80 120, 120 40 S 200 80, 240 60" fill="none" stroke={soft} strokeOpacity="0.5" strokeWidth="1" />
+            {Array.from({ length: 12 }).map((_, k) =>
+              <circle key={k} cx={15+k*12} cy={100 + Math.sin(k*0.9)*28} r="1.8" fill={accent} opacity="0.9" />
+            )}
+          </>
+        )}
+        {pattern === 'dots' &&
+          Array.from({ length: 60 }).map((_, k) => {
+            const x = (k*37) % 160, y = ((k*83) % 160);
+            return <circle key={k} cx={x} cy={y} r={0.8 + (k%4)*0.5} fill={k%3===0 ? accent : soft} opacity={0.3 + (k%5)*0.12} />;
+          })}
+        {pattern === 'grid' &&
+          <>
+            {Array.from({ length: 9 }).map((_, k) =>
+              <line key={`h${k}`} x1="0" y1={k*20} x2="160" y2={k*20} stroke={soft} strokeOpacity="0.18" />
+            )}
+            {Array.from({ length: 9 }).map((_, k) =>
+              <line key={`v${k}`} x1={k*20} y1="0" x2={k*20} y2="160" stroke={soft} strokeOpacity="0.18" />
+            )}
+            <rect x="40" y="60" width="50" height="40" fill="none" stroke={accent} strokeWidth="1.2" />
+            <rect x="70" y="80" width="50" height="40" fill="none" stroke={accent} strokeWidth="1.2" strokeOpacity="0.6" />
+          </>
+        }
+      </svg>
+      <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
+    </div>);
+}
+
+/* ============ Education ============ */
+function ExperienceSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const inView = useInViewFn(ref, { once: true, margin: '-100px' });
+
+  // Real school logos — loaded from /assets
+  const UclCrest = () => (
+    <img src="assets/logo-ucl.jpeg" alt="UCL" className="w-full h-full object-contain rounded-full" />
+  );
+  const SheffieldCrest = () => (
+    <img src="assets/logo-sheffield.jpeg" alt="University of Sheffield" className="w-full h-full object-contain rounded-full" />
+  );
+  const NwafuCrest = () => (
+    <img src="assets/logo-nwafu.jpeg" alt="Northwest A&F University" className="w-full h-full object-contain rounded-full" />
+  );
+
+  const items = [
+  {
+    years: '2023 — 2027',
+    yearShort: '2023',
+    role: { en: 'PhD, Computer Science', zh: '博士，计算机科学' },
+    place: { en: 'University College London', zh: '伦敦大学学院' },
+    placeShort: { en: 'UCL', zh: 'UCL' },
+    body: {
+      en: 'Expected Jan 2027. Research on RL, Transformers, and legged robots.',
+      zh: '预计 2027•1 毕业。研究强化学习、Transformers、足式机器人。'
+    },
+    Crest: UclCrest
+  },
+  {
+    years: '2021 — 2022',
+    yearShort: '2021',
+    role: { en: 'MSc, Robotics & Automation', zh: '硕士，机器人与自动化' },
+    place: { en: 'The University of Sheffield', zh: '谢菲尔德大学' },
+    placeShort: { en: 'Sheffield', zh: '谢菲尔德' },
+    body: {
+      en: 'Graduated with Distinction.',
+      zh: '以优秀等级（Distinction）毕业。'
+    },
+    Crest: SheffieldCrest
+  },
+  {
+    years: '2016 — 2020',
+    yearShort: '2016',
+    role: { en: 'BEng, Mechanical Engineering', zh: '学士，机械工程' },
+    place: { en: 'Northwest A&F University', zh: '西北农林科技大学' },
+    placeShort: { en: 'NWAFU', zh: '西农' },
+    body: {
+      en: 'Outstanding Graduation Project Award (Top 100 of 5,000).',
+      zh: '优秀毕业设计奖（5000 人中前 100）。'
+    },
+    Crest: NwafuCrest
+  }];
+
+  // Reverse chronologically for left-to-right timeline (oldest → newest)
+  const timeline = [...items].reverse();
+
+  return (
+    <section id="education" ref={ref} className="py-8 md:py-10 px-6 overflow-hidden relative" style={{ background: '#0d0a14' }}>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('assets/education-bg.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.85,
+        }} />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.78) 55%, rgba(0,0,0,0.92) 100%)',
+        }} />
+      <div
+        className="absolute inset-x-0 top-0 h-24 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, #000 0%, rgba(0,0,0,0) 100%)' }} />
+      <div
+        className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, #000 0%, rgba(0,0,0,0) 100%)' }} />
+      <div className="max-w-5xl mx-auto relative">
+        <MotionDiv
+          className="flex items-end justify-between mb-5 md:mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}>
+          <h2 className={`text-3xl md:text-5xl text-white tracking-tight ${lang === 'zh' ? 'inkbrush-zh' : 'inkbrush-en'}`}>
+            {lang === 'zh' ? '教育' : 'Education'}
+          </h2>
+          <div className="hidden md:block text-white/40 text-xs tracking-[0.25em] uppercase font-mono">
+            2016 — 2027
+          </div>
+        </MotionDiv>
+
+        {/* Horizontal timeline */}
+        <div className="relative">
+          {/* Curved rail + golden particle flow */}
+          <div className="edu-rail-wrap">
+            <svg viewBox="0 0 1000 90" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="eduGlowGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stopColor="#ffd38a" stopOpacity="0" />
+                  <stop offset="35%"  stopColor="#ffd38a" stopOpacity="0.9" />
+                  <stop offset="55%"  stopColor="#fff2c7" stopOpacity="1" />
+                  <stop offset="75%"  stopColor="#ffb774" stopOpacity="0.85" />
+                  <stop offset="100%" stopColor="#ffb774" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                id="eduRailPath"
+                className="edu-rail-path"
+                d="M 0 43 Q 94 26 188 43 Q 282 60 357 52 Q 442 42 527 43 Q 612 44 696 52 Q 781 60 866 43 Q 933 32 1000 43"
+              />
+              <path
+                className="edu-rail-glow"
+                d="M 0 43 Q 94 26 188 43 Q 282 60 357 52 Q 442 42 527 43 Q 612 44 696 52 Q 781 60 866 43 Q 933 32 1000 43"
+              />
+            </svg>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 relative">
+            {timeline.map((it, i) => (
+              <MotionDiv
+                key={i}
+                className="flex flex-col items-center text-center md:px-3"
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.15 * i + 0.3 }}>
+                {/* Crest */}
+                <div className="relative w-12 h-12 md:w-14 md:h-14 mb-2">
+                  <div className="absolute inset-0 rounded-full overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+                    <it.Crest />
+                  </div>
+                </div>
+                {/* Node dot on rail */}
+                <div className="relative -mt-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-white ring-4 ring-black relative z-10" />
+                </div>
+                {/* Years */}
+                <div className="text-white/50 text-sm md:text-base font-mono tracking-widest mt-1 mb-1">
+                  {it.years}
+                </div>
+                {/* Place */}
+                <div className="text-white text-base md:text-lg tracking-tight leading-snug mb-1">
+                  {lang === 'zh' ? it.place.zh : it.place.en}
+                </div>
+                {/* Role */}
+                <div className="text-white/65 text-xs md:text-sm tracking-wide mb-2">
+                  {lang === 'zh' ? it.role.zh : it.role.en}
+                </div>
+                {/* Body */}
+                <p className="text-white/55 text-xs md:text-sm leading-relaxed max-w-[24ch] md:max-w-[28ch]">
+                  {lang === 'zh' ? it.body.zh : it.body.en}
+                </p>
+              </MotionDiv>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ============ Terminal (typewriter + ASCII + dual clock) ============ */
+function useDualClock() {
+  const [t, setT] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setT(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const fmt = (tz) => {
+    try {
+      return new Intl.DateTimeFormat('en-GB', {
+        timeZone: tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false,
+      }).format(t);
+    } catch (e) { return '--:--:--'; }
+  };
+  return { utc: fmt('UTC'), bj: fmt('Asia/Shanghai') };
+}
+
+// Flat text script of the whole session. Links are inlined as [label](url)
+// and rendered specially in the final pass.
+const TERM_SCRIPT = [
+  { kind: 'cmd',  text: 'whoami' },
+  { kind: 'out',  text: 'jincheng_wang — ucl cs phd candidate' },
+  { kind: 'out',  text: 'research: robot learning · planning · physical interaction' },
+  { kind: 'out',  text: 'location: London, UK' },
+  { kind: 'spacer' },
+  { kind: 'cmd',  text: 'cat contact.txt' },
+  { kind: 'out',  text: 'email  → [!ucabj46@ucl.ac.uk](mailto:ucabj46@ucl.ac.uk)' },
+  { kind: 'out',  text: 'scholar → [profile](https://scholar.google.com/citations?user=fgCXxRkAAAAJ&hl=zh-CN)' },
+  { kind: 'spacer' },
+  { kind: 'prompt' }, // trailing prompt with cursor
+];
+
+const ASCII_LOGO = [
+  '   ___     ___      __',
+  '  |_  |   |_  |    / /',
+  '    | |     | | /\\/ /',
+  '    | |  _  | |/    /',
+  '  __| | | |_| /\\/ /',
+  ' |_ _/   \\__/_/  \\/',
+];
+
+// Parse markdown-ish links into tokens. A '!' prefix inside the label marks
+// it as a highlighted link (e.g. [!email](mailto:...)).
+function parseLinks(text) {
+  const tokens = [];
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0, m;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) tokens.push({ t: 'text', v: text.slice(last, m.index) });
+    let label = m[1];
+    const hi = label.startsWith('!');
+    if (hi) label = label.slice(1);
+    tokens.push({ t: 'link', v: label, href: m[2], hi });
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) tokens.push({ t: 'text', v: text.slice(last) });
+  return tokens;
+}
+
+// Compute the plain-length of a line (for typewriter char counting)
+function plainLen(line) {
+  if (line.kind === 'cmd')    return ('$ ' + line.text).length + 'jincheng@ash:~'.length;
+  if (line.kind === 'out')    return line.text.replace(/\[!?([^\]]+)\]\([^)]+\)/g, '$1').length + 2;
+  if (line.kind === 'ascii')  return ASCII_LOGO.reduce((a, l) => a + l.length, 0);
+  if (line.kind === 'spacer') return 1;
+  if (line.kind === 'prompt') return 'jincheng@ash:~$ '.length;
+  return 0;
+}
+
+function Terminal({ inView }) {
+  const { utc, bj } = useDualClock();
+  const [progress, setProgress] = useState(0); // total chars revealed across all lines
+  const [done, setDone] = useState(false);
+
+  // Total characters in whole script (for knowing when done)
+  const totalChars = useMemo(
+    () => TERM_SCRIPT.reduce((a, l) => a + plainLen(l), 0),
+    []
+  );
+
+  useEffect(() => {
+    if (!inView) return;
+    let p = 0;
+    let timer;
+    const tick = () => {
+      p += 2;
+      if (p >= totalChars) {
+        setProgress(totalChars);
+        setDone(true);
+        return;
+      }
+      setProgress(p);
+      timer = setTimeout(tick, 18);
+    };
+    timer = setTimeout(tick, 300);
+    return () => { if (timer) clearTimeout(timer); };
+  }, [inView, totalChars]);
+
+  // Render each line, cutting by remaining characters
+  let remaining = progress;
+  const renderedLines = [];
+  for (let idx = 0; idx < TERM_SCRIPT.length; idx++) {
+    const line = TERM_SCRIPT[idx];
+    const len = plainLen(line);
+    if (remaining <= 0 && !done) break;
+    const take = Math.min(len, remaining);
+    remaining -= len;
+    renderedLines.push({ line, take, full: take >= len, idx });
+  }
+
+  return (
+    <MotionDiv
+      className="terminal"
+      initial={{ opacity: 0, x: -20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.8 }}>
+      <div className="t-bar">
+        <span className="d" /><span className="d" /><span className="d" />
+        <span className="t-title">— jincheng@ash —</span>
+        <span className="ml-auto flex items-center gap-3 text-[12px] font-mono tracking-wider" style={{ color: 'rgba(232,230,224,0.7)' }}>
+          <span><span style={{ color: '#9fd49f' }}>UTC</span> {utc}</span>
+          <span><span style={{ color: '#ffcc99' }}>BJ</span> {bj}</span>
+        </span>
+      </div>
+      {renderedLines.map(({ line, take, full, idx }) => {
+        if (line.kind === 'cmd') {
+          const prefix = 'jincheng@ash:~$ ';
+          const shown = sliceLine(prefix + line.text, take);
+          // Split stylized parts
+          const userLen = 'jincheng@ash'.length;
+          const pathLen = userLen + 1; // + ':'
+          const full2 = shown.length;
+          return (
+            <div key={idx}>
+              <span className="prompt">{shown.slice(0, Math.min(full2, userLen))}</span>
+              {full2 > userLen && <span>{shown.slice(userLen, Math.min(full2, pathLen))}</span>}
+              {full2 > pathLen && <span className="path">{shown.slice(pathLen, Math.min(full2, pathLen + 1))}</span>}
+              {full2 > pathLen + 1 && <span>{shown.slice(pathLen + 1)}</span>}
+            </div>);
+
+        }
+        if (line.kind === 'out') {
+          // Reveal text, preserving links when reached
+          const tokens = parseLinks(line.text);
+          const plain = line.text.replace(/\[!?([^\]]+)\]\([^)]+\)/g, '$1');
+          const showChars = Math.max(0, take - 2); // "  " indent counts
+          let acc = 0;
+          const parts = [];
+          for (const tok of tokens) {
+            const vlen = tok.v.length;
+            if (acc >= showChars) break;
+            const part = tok.v.slice(0, Math.max(0, showChars - acc));
+            if (tok.t === 'link' && part.length === vlen) {
+              parts.push(
+                <a key={acc} href={tok.href} target="_blank" rel="noopener" className={tok.hi ? 'email-hi' : ''}>{part}</a>
+              );
+            } else {
+              parts.push(<span key={acc}>{part}</span>);
+            }
+            acc += part.length;
+            if (part.length < vlen) break;
+          }
+          return <div key={idx}>&nbsp;&nbsp;{parts}</div>;
+        }
+        if (line.kind === 'ascii') {
+          if (take <= 0 && !full) return null;
+          return (
+            <pre key={idx} className="ascii-logo" style={{ margin: '6px 0 0 0', lineHeight: 1.1, fontSize: '11px', color: 'rgba(159, 212, 159, 0.85)' }}>
+              {ASCII_LOGO.join('\n')}
+            </pre>);
+
+        }
+        if (line.kind === 'spacer') {
+          return <div key={idx} style={{ height: '8px' }} />;
+        }
+        if (line.kind === 'prompt') {
+          return (
+            <div key={idx}>
+              <span className="prompt">jincheng@ash</span>:<span className="path">~</span>$ {done && <span className="cursor-tb" />}
+            </div>);
+
+        }
+        return null;
+      })}
+      {!done && <span className="cursor-tb" style={{ marginLeft: 2 }} />}
+    </MotionDiv>);
+
+}
+
+function sliceLine(str, n) {
+  return str.slice(0, Math.max(0, n));
+}
+
+/* ============ Contact ============ */
+function ContactSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      if (!ref.current) return;
+      if (window.location.hash === '#contact') {
+        setInView(true);
+        return;
+      }
+      const r = ref.current.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9 && r.bottom > 0) setInView(true);
+    };
+    check();
+    const timers = [120, 420, 900].map((ms) => window.setTimeout(check, ms));
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('hashchange', check);
+    window.addEventListener('resize', check);
+    return () => {
+      timers.forEach((id) => window.clearTimeout(id));
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('hashchange', check);
+      window.removeEventListener('resize', check);
+    };
+  }, []);
+
+  return (
+    <section id="contact" ref={ref} style={{ background: '#100c1a' }} className=" py-14 md:py-20 px-6 overflow-hidden relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.03)_0%,_transparent_60%)] pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative">
+        <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-14 items-center">
+          {/* Left: terminal card */}
+          <div className="hidden md:block">
+            <Terminal inView={inView} />
+          </div>
+
+          {/* Right: CTA content, compact */}
+          <div className="text-center md:text-left">
+            <MotionP
+              className="text-white/40 text-xs tracking-widest uppercase mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}>
+              
+              {lang === 'zh' ? '联系' : 'Contact'}
+            </MotionP>
+            <MotionH2
+              className={`tracking-tight mb-6 leading-[1.05] text-3xl md:text-5xl ${lang === 'zh' ? 'cnserif' : ''}`}
+              style={{ fontFamily: lang === 'zh' ? undefined : '"Cormorant Garamond", "Instrument Serif", serif', fontStyle: lang === 'zh' ? 'normal' : 'italic', fontWeight: 500, color: '#e8e6e0' }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.1 }}>
+              
+              {lang === 'zh' ?
+              <>
+                  {'欢迎合作、'}
+                  <span style={{ color: '#d97059' }}>学生交流</span>
+                  {'与学术邀约。'}
+                </> :
+
+              <>
+                  {'For collaborators, prospective '}
+                  <span style={{ color: '#d97059' }}>students</span>
+                  {', and research conversations.'}
+                </>
+              }
+            </MotionH2>
+
+            <MotionDiv
+              className="flex flex-wrap items-center justify-center md:justify-start gap-2.5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.25 }}>
+              
+              <a href="mailto:ucabj46@ucl.ac.uk" className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-semibold inline-flex items-center gap-2 hover:bg-white/5 transition-colors">
+                <MailIcon size={15} /> {lang === 'zh' ? '发邮件' : 'Email'}
+              </a>
+              <a href="https://scholar.google.com/citations?user=fgCXxRkAAAAJ&hl=zh-CN" target="_blank" rel="noopener" className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-medium inline-flex items-center gap-2 hover:bg-white/5 transition-colors">
+                <ScholarIcon size={15} /> {lang === 'zh' ? '谷歌学术' : 'Scholar'}
+              </a>
+              <a href="https://github.com/WangJinCheng1998" target="_blank" rel="noopener" className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-medium inline-flex items-center gap-2 hover:bg-white/5 transition-colors">
+                <GithubIcon size={15} /> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/jincheng-wang-43a204287/" target="_blank" rel="noopener" className="liquid-glass rounded-full px-5 py-3 text-white text-sm font-medium inline-flex items-center gap-2 hover:bg-white/5 transition-colors">
+                <LinkedinIcon size={15} /> LinkedIn
+              </a>
+            </MotionDiv>
+
+            <MotionP
+              className="mt-6 text-white/70 text-sm md:text-base leading-relaxed max-w-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.35 }}>
+              
+              {lang === 'zh' ?
+              '很乐意交流机器人导航、强化学习、足式机器人、声学操控，也欢迎合作、评审、报告与学生咨询。' :
+              'I’m happy to discuss robot navigation, reinforcement learning, legged robots, and acoustic manipulation. Collaboration, reviewing, talks, and student questions are welcome.'}
+            </MotionP>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ============ Awards + Hobbies (paired scroll-cards) ============ */
+function AwardsSection() {
+  const { lang } = useLang();
+  const ref = useRef(null);
+  const inView = useInViewFn(ref, { once: true, margin: '-100px' });
+
+  const awards = [
+  {
+    year: '2022',
+    en: 'MSc awarded with Distinction',
+    zh: '硕士以优秀等级（Distinction）毕业',
+    note: { en: 'University of Sheffield', zh: '谢菲尔德大学' }
+  },
+  {
+    year: '2020',
+    en: 'Outstanding Graduation Project Award',
+    zh: '优秀毕业设计奖',
+    note: { en: 'Top 100 of 5,000 graduates', zh: '5000 名毕业生中前 100' }
+  },
+  {
+    year: '2018',
+    en: '1st Place, China Robot Contest',
+    zh: '全国大学生机器人大赛 — 一等奖',
+    note: { en: 'National competition', zh: '全国性赛事' }
+  },
+  {
+    year: '2018',
+    en: 'Tier-2 Scholarship',
+    zh: '二等奖学金',
+    note: { en: 'Northwest A&F University', zh: '西北农林科技大学' }
+  }];
+
+  const languages = [
+  { name: { en: 'Mandarin', zh: '中文' }, level: { en: 'Native',     zh: '母语' }, score: '' },
+  { name: { en: 'English',  zh: 'English' }, level: { en: 'TOEFL',  zh: '托福' }, score: '97' },
+  { name: { en: 'Japanese', zh: '日本語' }, level: { en: 'JLPT',    zh: '日本语能力试验' }, score: 'N2' }];
+
+  const hobbies = [
+  { en: 'Photography',  zh: '摄影',     icon: 'assets/hobby-photography.png' },
+  { en: 'Cycling',      zh: '骑行',     icon: 'assets/hobby-cycling.png' },
+  { en: 'Badminton',    zh: '羽毛球',   icon: 'assets/hobby-badminton.png' },
+  { en: 'Dota 2',       zh: 'Dota 2',  icon: 'assets/hobby-dota.png' }];
+
+  return (
+    <section id="awards" ref={ref} style={{ background: '#0d0a14' }} className=" py-10 md:py-14 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        <MotionDiv
+          className="flex items-end justify-between mb-6 md:mb-7"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}>
+          <h2 className={`text-2xl md:text-4xl text-white tracking-tight ${lang === 'zh' ? 'inkbrush-zh' : 'inkbrush-en'}`}>
+            {lang === 'zh' ? '荣誉与兴趣' : 'Honors & Beyond'}
+          </h2>
+          <div className="hidden md:block text-white/40 text-xs tracking-[0.25em] uppercase font-mono">
+            {lang === 'zh' ? '补充资料' : 'Selected notes'}
+          </div>
+        </MotionDiv>
+
+        <div className="grid grid-cols-1 md:grid-cols-[1.12fr_0.88fr] gap-5 md:gap-6 items-stretch">
+          {/* ========== Scroll I: Awards ========== */}
+          <MotionDiv
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="scroll-card flex flex-col">
+
+            <div className="scroll-card-head">
+              <div className="scroll-card-eyebrow">
+                {lang === 'zh' ? '学术与竞赛' : 'Recognition'}
+              </div>
+              <div className="scroll-card-title">
+                {lang === 'zh' ? '荣誉' : 'Awards'}
+              </div>
+            </div>
+
+            <ul className="scroll-card-body">
+              {awards.map((it, i) =>
+                <li key={i} className="scroll-row">
+                  <span className="scroll-row-year">{it.year}</span>
+                  <span className="scroll-row-rule" aria-hidden="true" />
+                  <div className="scroll-row-main">
+                    <div className="scroll-row-title">{lang === 'zh' ? it.zh : it.en}</div>
+                    <div className="scroll-row-note">{lang === 'zh' ? it.note.zh : it.note.en}</div>
+                  </div>
+                </li>
+              )}
+            </ul>
+          </MotionDiv>
+
+          {/* ========== Languages + Hobbies ========== */}
+          <MotionDiv
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="scroll-card flex flex-col">
+
+            <div className="scroll-card-head">
+              <div className="scroll-card-eyebrow">
+                {lang === 'zh' ? '个人侧面' : 'Outside the lab'}
+              </div>
+              <div className="scroll-card-title">
+                {lang === 'zh' ? '兴趣' : 'Interests'}
+              </div>
+            </div>
+
+            <div className="scroll-card-body flex flex-col gap-6">
+              {/* — Languages — */}
+              <div>
+                <div className="scroll-subhead">{lang === 'zh' ? '语言' : 'Languages'}</div>
+                <ul className="mt-3 flex flex-col gap-2.5">
+                  {languages.map((l, i) =>
+                    <li key={i} className="scroll-row scroll-row--lang">
+                      <span className="scroll-row-year text-white/85">{lang === 'zh' ? l.name.zh : l.name.en}</span>
+                      <span className="scroll-row-rule" aria-hidden="true" />
+                      <div className="scroll-row-main flex items-baseline gap-3">
+                        <span className="text-white/55 text-xs md:text-sm tracking-wide">
+                          {lang === 'zh' ? l.level.zh : l.level.en}
+                        </span>
+                        {l.score &&
+                          <span className="text-white text-base md:text-lg font-mono tracking-wider">
+                            {l.score}
+                          </span>}
+                      </div>
+                    </li>
+                  )}
+                </ul>
+              </div>
+
+              {/* — Hobbies — */}
+              <div>
+                <div className="scroll-subhead">{lang === 'zh' ? '爱好' : 'Hobbies'}</div>
+                <ul className="mt-3 grid grid-cols-2 gap-2.5">
+                  {hobbies.map((h, i) =>
+                    <li key={i} className="hobby-chip">
+                      <span className="hobby-glyph" aria-hidden="true">
+                        <img src={h.icon} alt="" loading="lazy" />
+                      </span>
+                      <span className="hobby-label">{lang === 'zh' ? h.zh : h.en}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </div>
+          </MotionDiv>
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ============ Sticky compact nav ============ */
+function StickyNav() {
+  const { lang } = useLang();
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      const y = window.scrollY || window.pageYOffset;
+      // Activate after the hero is mostly scrolled past
+      const threshold = Math.max(260, window.innerHeight * 0.55);
+      setShow(y > threshold);
+      raf = 0;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const links = [
+    { href: '#about',        en: 'About',        zh: '关于' },
+    { href: '#publications', en: 'Publications', zh: '发表' },
+    { href: '#contact',      en: 'Contact',      zh: '联系' },
+  ];
+
+  return (
+    <div
+      aria-hidden={!show}
+      className="hidden md:flex fixed top-0 left-0 right-0 z-50 justify-center px-4 pointer-events-none"
+      style={{
+        transform: show ? 'translateY(14px)' : 'translateY(-120%)',
+        opacity: show ? 1 : 0,
+        transition: 'transform 650ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease-out',
+        willChange: 'transform, opacity',
+      }}>
+      <div
+        className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-6 pointer-events-auto shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+        style={{ backdropFilter: 'blur(26px) saturate(1.6)', WebkitBackdropFilter: 'blur(26px) saturate(1.6)' }}>
+        <a href="#" className="flex items-center gap-2 pr-2 border-r border-white/10">
+          <GlobeIcon size={16} className="text-white" />
+          <span className="text-white text-sm font-semibold tracking-tight">
+            {lang === 'zh' ? '王锦程' : 'Jincheng Wang'}
+          </span>
+        </a>
+        <div className="flex items-center gap-5">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-white/75 hover:text-white text-sm font-medium transition-colors">
+              {lang === 'zh' ? l.zh : l.en}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============ App ============ */
+function App() {
+  const [lang, setLang] = useState(() => {
+    try {return localStorage.getItem('jcw_lang') || 'en';} catch {return 'en';}
+  });
+  useEffect(() => {
+    try {localStorage.setItem('jcw_lang', lang);} catch {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }, [lang]);
+
+  return (
+    <LangCtx.Provider value={{ lang, setLang }}>
+      <main style={{ background: '#0d0a14' }}>
+        <StickyNav />
+        <Hero />
+        <AboutSection />
+        <ExperienceSection />
+        <WritingSection />
+        <AwardsSection />
+        <ContactSection />
+        <footer style={{ background: '#08060e' }} className=" py-10 px-6 border-t border-white/5">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+            <div className="flex items-center gap-2 text-white/60">
+              <GlobeIcon size={16} />
+              <span className="font-medium">{lang === 'zh' ? '王锦程' : 'Jincheng Wang'}</span>
+            </div>
+            <div className="text-white/30 tracking-widest uppercase font-mono">
+              © 2026
+            </div>
+          </div>
+        </footer>
+      </main>
+    </LangCtx.Provider>);
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<script type="module" src="assets/lanyard/lanyard-island.js?v=developer-pass-card-8"></script>
+</body>
+</html>
